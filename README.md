@@ -11,7 +11,7 @@ MDF (Modular Development Framework) Just in time (Estoque Mínimo) é uma ferram
 ## Instruções para executar o projeto localmente
 - 1 Clone o repositório do projeto:
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone <https://github.com/GabrielBZanon/mdfjustintime2025.git>
 ```
 - 2 Navegue até o diretório do backend e instale as dependências:
 ```bash
