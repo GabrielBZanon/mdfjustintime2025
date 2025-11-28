@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Movimentações</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+    <h2>Movimentações</h2>
+    <button onclick="location.href='../home/index.html'">Voltar</button>
+</header>
+
+<div class="container">
+    <h3>Registrar Movimentação</h3>
+
+    <input id="usuarioId" placeholder="ID do Usuário"><br><br>
+    <input id="produtoId" placeholder="ID do Produto"><br><br>
+    <input id="quantidade" placeholder="Quantidade"><br><br>
+
+    <select id="tipo">
+        <option value="ENTRADA">ENTRADA</option>
+        <option value="SAIDA">SAIDA</option>
+    </select>
+    <br><br>
+
+    <button onclick="registrar()">Registrar</button>
+
+    <h3>Movimentações Recentes</h3>
+    <table id="tabela"></table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

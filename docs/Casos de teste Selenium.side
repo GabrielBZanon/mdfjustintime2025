@@ -35,94 +35,22 @@
         {
           "command": "click",
           "target": "css=button",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "35ba162a-629f-4a40-8343-51d16ca7e10e",
-          "targets": [
-            [
-              "css=button",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@type='submit' and text()='Entrar'])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Entrar')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "35ba162a-629f-4a40-8343-51d16ca7e10e"
         },
         {
           "command": "click",
           "target": "css=nav:nth-child(3) > button:nth-child(1)",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "59d7b5a6-cc5d-4e3e-9039-94d65d2622d8",
-          "targets": [
-            [
-              "css=nav:nth-child(3) > button:nth-child(1)",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@onclick=\"window.location.href='../produto/index.html'\"])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Gestão de Produtos')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "59d7b5a6-cc5d-4e3e-9039-94d65d2622d8"
         },
         {
           "command": "click",
           "target": "css=nav > button",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "7f03d28b-8cb4-4493-b4d3-3e03dd709813",
-          "targets": [
-            [
-              "css=nav > button",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@onclick='window.history.back()'])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Voltar')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "7f03d28b-8cb4-4493-b4d3-3e03dd709813"
         },
         {
           "command": "click",
           "target": "css=nav:nth-child(2) > button",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "31e77326-6634-4627-95d6-165b4eb245c7",
-          "targets": [
-            [
-              "css=nav:nth-child(2) > button",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@onclick='sair()'])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Sair')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "31e77326-6634-4627-95d6-165b4eb245c7"
         }
       ]
     },
@@ -131,240 +59,62 @@
       "name": "Producao",
       "commands": [
         {
-          "id": "fd0e9c1a-2486-4819-a627-eb6633bc0e6d",
           "command": "open",
           "target": "http://127.0.0.1:5500/web/login/",
-          "value": ""
+          "id": "fd0e9c1a-2486-4819-a627-eb6633bc0e6d"
         },
         {
           "command": "click",
           "target": "css=button",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "6ed81234-8b85-4a55-844a-679aed85da9e",
-          "targets": [
-            [
-              "css=button",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@type='submit' and text()='Entrar'])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Entrar')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "6ed81234-8b85-4a55-844a-679aed85da9e"
         },
         {
           "command": "click",
           "target": "css=button:nth-child(2)",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "d5cae441-58f5-4900-9824-8d5748e6df48",
-          "targets": [
-            [
-              "css=button:nth-child(2)",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@onclick=\"window.location.href='../producao/index.html'\"])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Gestão de Produção')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "d5cae441-58f5-4900-9824-8d5748e6df48"
         },
         {
           "command": "type",
           "target": "id=quantidade1",
           "value": "1",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "be82db9a-2c89-4a66-abdb-cd03a94f0ae8",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "be82db9a-2c89-4a66-abdb-cd03a94f0ae8"
         },
         {
           "command": "click",
           "target": "id=quantidade1",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "d957b4a2-7f86-4bdb-bdd6-c45fab791c72",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "d957b4a2-7f86-4bdb-bdd6-c45fab791c72"
         },
         {
           "command": "type",
           "target": "id=quantidade1",
           "value": "2",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "e4523b48-fe71-404e-b364-22f7c7a574be",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "e4523b48-fe71-404e-b364-22f7c7a574be"
         },
         {
           "command": "click",
           "target": "id=quantidade1",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "6dca414d-30a2-4afa-a200-d32fc23dd1a1",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "6dca414d-30a2-4afa-a200-d32fc23dd1a1"
         },
         {
           "command": "doubleClick",
           "target": "id=quantidade1",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "e81eb569-d2bf-496a-a69f-47a5f68180ee",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "e81eb569-d2bf-496a-a69f-47a5f68180ee"
         },
         {
           "command": "type",
           "target": "id=quantidade1",
           "value": "3",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "2d6c990e-af1f-4240-97e1-a146e7b0c0c5",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "2d6c990e-af1f-4240-97e1-a146e7b0c0c5"
         },
         {
           "command": "click",
           "target": "id=quantidade1",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "9b58fc9d-5226-427a-a4c7-0efd1696d6ab",
-          "targets": [
-            [
-              "id=quantidade1",
-              "id"
-            ],
-            [
-              "css=#quantidade1",
-              "css:finder"
-            ],
-            [
-              "xpath=(//input[@id='quantidade1'])[1]",
-              "xpath:attributes"
-            ]
-          ]
+          "id": "9b58fc9d-5226-427a-a4c7-0efd1696d6ab"
         },
         {
           "command": "click",
           "target": "css=tr:nth-child(1) > td:nth-child(6) > button",
-          "value": "",
-          "insertBeforeLastCommand": false,
-          "frameLocation": "root",
-          "winHandleId": "root",
-          "id": "1c67db61-a257-452c-9650-65a50e11b076",
-          "targets": [
-            [
-              "css=tr:nth-child(1) > td:nth-child(6) > button",
-              "css:finder"
-            ],
-            [
-              "xpath=(//button[@onclick=\"producoes(1, document.getElementById('data1').value, document.getElementById('quantidade1').value, 'PRODUCAO')\"])[1]",
-              "xpath:attributes"
-            ],
-            [
-              "xpath=//button[contains(.,'Produzir')]",
-              "xpath:innerText"
-            ]
-          ]
+          "id": "1c67db61-a257-452c-9650-65a50e11b076"
         }
       ]
     }

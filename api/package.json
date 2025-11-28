@@ -2,21 +2,31 @@
   "name": "apijustintime",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
-    "dev": "npx nodemon server.js",
-    "postinstall": "prisma migrate dev --name init && prisma generate"
-  },
-  "keywords": [],
+  "description": "Just in Time - gestão de produção e estoque mínimo",
   "author": "GabrieLBZanon",
   "license": "ISC",
-  "description": "Just in Time - gestão de produção e estoque mínimo",
-  "prisma":{
+
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "migrate": "prisma migrate dev --name init",
+    "deploy": "prisma migrate deploy",
     "seed": "node prisma/seed.js"
   },
+
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+
   "dependencies": {
     "@prisma/client": "^6.19.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0"
+  },
+
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prisma": "^6.19.0"
   }
 }

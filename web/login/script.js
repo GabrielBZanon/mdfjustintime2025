@@ -1,31 +1,20 @@
-const api = "http://localhost:3000/login";
-const usuario = JSON.parse(localStorage.getItem("usuario")) || null;
+async function login() {
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
 
-if (usuario) {
-    window.location.href = "../home";
-}
-
-const form = document.querySelector("form");
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const dados = {
-        email: form.email.value,
-        senha: form.senha.value
-    };
-
-    const resposta = await fetch(api, {
+    const req = await fetch("http://localhost:3000/login", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(dados)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, senha })
     });
-    const resultado = await resposta.json();
 
-    if (resposta.ok) {
-        localStorage.setItem("usuario", JSON.stringify(resultado));
-        window.location.href = "../home";
-    } else {
-        alert(resultado.error);
+    const res = await req.json();
+
+    if (req.status !== 200) {
+        alert(res.error);
+        return;
     }
-});
+
+    localStorage.setItem("usuario", JSON.stringify(res));
+    window.location.href = "../home/index.html";
+}

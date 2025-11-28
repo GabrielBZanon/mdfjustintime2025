@@ -1,98 +1,56 @@
-const api = "http://localhost:3000";
-const usuario = JSON.parse(localStorage.getItem("usuario")) || null;
+async function carregar() {
+    const req = await fetch("http://localhost:3000/produtos");
+    const produtos = await req.json();
 
-if (!usuario) {
-    window.location.href = "../login";
-}
+    const tabela = document.getElementById("tabela");
 
-const form = document.querySelector("form");
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const novoProduto = {
-        nome: form.nome.value,
-        descricao: form.descricao.value,
-        estoque: parseInt(form.estoque.value),
-        estoqueMinimo: parseInt(form.estoqueMinimo.value),
-        custo: parseFloat(form.custo.value),
-    };
-    if (form.imagem.value) {
-        novoProduto.imagem = form.imagem.value;
-    }
-    await fetch(`${api}/produtos`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(novoProduto)
-    });
-    form.reset();
-    carregarProdutos();
-});
+    tabela.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>SKU</th>
+            <th>Nome</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </tr>
+    `;
 
-const tbody = document.querySelector("tbody");
-async function carregarProdutos() {
-    const response = await fetch(`${api}/produtos`);
-    const produtos = await response.json();
-
-    tbody.innerHTML = "";
-    produtos.forEach(produto => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td><img src="${produto.imagem}" alt="${produto.nome}"></td>
-            <td>${produto.id}</td>
-            <td contenteditable="true">${produto.nome}</td>
-            <td contenteditable="true">${produto.descricao}</td>
-            <td contenteditable="true">${produto.estoque}</td>
-            <td contenteditable="true">${produto.estoqueMinimo}</td>
-            <td contenteditable="true">R$ ${produto.custo.toFixed(2)}</td>
-            <td>
-                <button onclick="editarProduto(this)">Editar</button>
-                <button onclick="deletarProduto(${produto.id})">Deletar</button>
-            </td>
+    produtos.forEach(p => {
+        tabela.innerHTML += `
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.sku}</td>
+                <td>${p.nome}</td>
+                <td>${p.estoque}</td>
+                <td>
+                    <button onclick="deletar(${p.id})">Excluir</button>
+                </td>
+            </tr>
         `;
-        tbody.appendChild(tr);
     });
 }
-carregarProdutos();
 
-function editarProduto(botao) {
-    const tr = botao.parentElement.parentElement;
-    const id = tr.children[1].innerText;
-    const corpo = {
-        nome: tr.children[2].innerText,
-        descricao: tr.children[3].innerText,
-        estoque: parseInt(tr.children[4].innerText),
-        estoqueMinimo: parseInt(tr.children[5].innerText),
-        custo: parseFloat(tr.children[6].innerText.replace("R$ ", ""))
+async function cadastrar() {
+    const data = {
+        sku: document.getElementById("sku").value,
+        nome: document.getElementById("nome").value,
+        descricao: document.getElementById("descricao").value,
+        custo: Number(document.getElementById("custo").value),
+        estoque: Number(document.getElementById("estoque").value),
+        estoqueMinimo: Number(document.getElementById("estoqueMinimo").value)
     };
-    fetch(`${api}/produtos/${id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(corpo)
+
+    await fetch("http://localhost:3000/produtos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
     });
+
+    carregar();
 }
 
-async function deletarProduto(id) {
-    if (confirm("Tem certeza que deseja deletar este produto?")) {
-        await fetch(`${api}/produtos/${id}`, {
-            method: "DELETE"
-        });
-        carregarProdutos();
-    }
+async function deletar(id) {
+    await fetch(`http://localhost:3000/produtos/${id}`, { method: "DELETE" });
+    carregar();
 }
 
-function filtrarProdutos() {
-    const filtro = document.getElementById("filtro").value.toLowerCase();
-    const linhas = tbody.getElementsByTagName("tr");
-    for (let i = 0; i < linhas.length; i++) {
-        const nome = linhas[i].children[2].innerText.toLowerCase();
-        const descricao = linhas[i].children[3].innerText.toLowerCase();
-        if (nome.includes(filtro) || descricao.includes(filtro)) {
-            linhas[i].style.display = "";
-        } else {
-            linhas[i].style.display = "none";
-        }
-    }
-}
+carregar();

@@ -8,36 +8,47 @@ datasource db {
 }
 
 model Usuario {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  email     String   @unique
-  senha     String
-  producoes  Producao[]
-}
-
-model produto {
-  id            Int        @id @default(autoincrement())
+  id            Int            @id @default(autoincrement())
   nome          String
-  descricao     String?
-  custo         Float
-  estoque       Int
-  estoqueMinimo Int
-  imagem     String?
-  producoes      Producao[]
+  email         String         @unique
+  senha         String
+  movimentacoes Movimentacao[] 
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
 }
 
-model Producao {
-  id         Int      @id @default(autoincrement())
-  usuarioId Int
+model Produto {
+  id             Int            @id @default(autoincrement())
+  sku            String?        @unique
+  nome           String
+  descricao      String?
+  custo          Float
+  estoque        Int
+  estoqueMinimo  Int
+  imagem         String?
+  especificacoes Json?          
+  movimentacoes  Movimentacao[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model Movimentacao {
+  id         Int          @id @default(autoincrement())
+  usuarioId  Int
   produtoId  Int
   tipo       TipoMovimento
   quantidade Int
-  data       DateTime @default(now())
-  produto produto @relation(fields: [produtoId], references: [id], onDelete: Cascade)
-  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  data       DateTime     @default(now())
+  observacao String?      
+  produto    Produto      @relation(fields: [produtoId], references: [id], onDelete: Cascade)
+  usuario    Usuario      @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@index([produtoId])
+  @@index([usuarioId])
+  @@index([tipo, data])
 }
 
 enum TipoMovimento {
-  PRODUCAO
-  PEDIDO
+  ENTRADA
+  SAIDA
 }
